@@ -1,4 +1,4 @@
-// import useInput from '@hooks/useInput';
+import useInput from '@hooks/useInput';
 // import fetcher from '@utils/fetcher';
 import React, { useCallback, useState, VFC } from 'react';
 import axios from 'axios';
@@ -7,17 +7,12 @@ import { Success, Form, Error, Label, Input, LinkContainer, Button, Header } fro
 import { Link, Redirect } from 'react-router-dom';
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [nickname, setNickname] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, onChangeEmail] = useInput('');
+  const [nickname, onChangeNickname] = useInput('');
+  const [password, setPassword] = useInput('');
   const [passwordCheck, setPasswordCheck] = useState('');
   const [mismatchError, setMismatchError] = useState(false);
-  const onChangeEmail = useCallback((e) => {
-    setEmail(e.target.value);
-  }, []);
-  const onChangeNickname = useCallback((e) => {
-    setNickname(e.target.value);
-  }, []);
+
   const onChangePassword = useCallback(
     (e) => {
       setPassword(e.target.value);
