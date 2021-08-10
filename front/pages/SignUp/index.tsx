@@ -6,7 +6,7 @@ import axios, { AxiosResponse } from 'axios';
 import { Success, Form, Error, Label, Input, LinkContainer, Button, Header } from './styles';
 import { Link, Redirect } from 'react-router-dom';
 import useSWR from 'swr';
-import fetcher from 'util/fetcher';
+import fetcher from '../../util/fetcher';
 
 const SignUp = () => {
   const { data, error, revalidate } = useSWR('http://localhost:3095/api/users', fetcher);
